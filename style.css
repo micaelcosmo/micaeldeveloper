@@ -1,0 +1,434 @@
+/* 1. Variáveis de Tema e Reset */
+:root {
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --primary-color: #33d9b2; /* Um tom de ciano/verde vibrante */
+    --text-color: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+section {
+    padding: 6rem 0;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: white;
+}
+
+/* 2. Header e Navegação */
+header {
+    background-color: rgba(30, 30, 30, 0.85); /* Fundo semi-transparente */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+}
+
+header ul li {
+    margin-left: 25px;
+}
+
+header ul li a {
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header ul li a:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* 3. Seção Hero */
+#hero {
+    padding-top: 150px; /* Ajuste para o header fixo */
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#hero .subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+#hero .summary {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 15px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background-color: white;
+    color: var(--bg-color);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* 4. Seção Habilidades */
+.skill-category {
+    margin-bottom: 2.5rem;
+}
+
+.skill-category h3 {
+    font-size: 1.4rem;
+    color: white;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 1.5rem;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-tags span {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.skill-tags span:hover {
+    transform: translateY(-3px);
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border-color: var(--primary-color);
+}
+
+/* 5. Seção Experiência (Timeline) */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* A linha vertical da timeline */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--primary-color);
+    opacity: 0.3;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    margin-left: -1.5px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    padding-left: 60px;
+    position: relative;
+    background-color: transparent;
+    margin-bottom: 30px;
+}
+
+.timeline-dot {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: var(--bg-color);
+    border: 4px solid var(--primary-color);
+    top: 20px;
+    left: 20px;
+    border-radius: 50%;
+    z-index: 1;
+    margin-left: -9px;
+}
+
+.timeline-content {
+    padding: 25px;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: scale(1.02);
+    border-color: var(--primary-color);
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.timeline-company {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.timeline-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: var(--text-secondary);
+}
+
+/* 6. Seção Formação */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.education-card {
+    background-color: var(--surface-color);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+}
+
+.education-card h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.education-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.education-card span {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* 7. Seção Certificações */
+.cert-list {
+    list-style: none;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cert-list li {
+    background-color: var(--surface-color);
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    border-left: 4px solid var(--primary-color);
+    color: var(--text-secondary);
+    transition: background-color 0.3s ease;
+}
+
+.cert-list li:hover {
+    background-color: #2a2a2a;
+    color: var(--text-color);
+}
+
+/* 8. Seção Contato */
+#contact {
+    text-align: center;
+}
+
+#contact p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.contact-info {
+    margin-bottom: 2.5rem;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+/* 9. Footer */
+footer {
+    background-color: var(--surface-color);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
+}
+
+footer p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* 10. Animação de Interação (Scroll) */
+.reveal-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 11. Responsividade */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    header .container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+    }
+
+    header ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header ul li {
+        margin: 5px 10px;
+    }
+
+    #hero {
+        padding-top: 200px; /* Mais espaço para o header maior */
+        text-align: center;
+    }
+
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+
+    #hero .summary {
+        margin: 1.5rem auto;
+    }
+
+    .timeline::after {
+        left: 10px;
+    }
+
+    .timeline-item {
+        padding-left: 40px;
+    }
+
+    .timeline-dot {
+        left: 10px;
+        margin-left: -9px;
+    }
+}
